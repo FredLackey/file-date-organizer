@@ -1,0 +1,50 @@
+{
+  "name": "file-date-organizer",
+  "version": "0.6.0",
+  "description": "Replaces multiple lines within large text files.",
+  "main": "src/index.js",
+  "preferGlobal": true,
+  "bin": {
+    "file-date-organizer": "./src/command.js"
+  },
+  "scripts": {
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FredLackey/file-date-organizer.git"
+  },
+  "keywords": [
+    "sed",
+    "awk",
+    "lines",
+    "replace"
+  ],
+  "author": {
+    "name": "Fred Lackey",
+    "email": "fred.lackey@gmail.com",
+    "url": "http://www.fredlackey.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FredLackey/file-date-organizer/issues"
+  },
+  "homepage": "https://github.com/FredLackey/file-date-organizer#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "@fredlackey/ugly-date": "^0.6.0",
+    "yargs": "^15.3.1"
+  }
+}

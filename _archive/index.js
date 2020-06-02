@@ -2,20 +2,24 @@ const _           = require('./utils');
 const options     = require('./options');
 const processing  = require('./processing');
 
-module.exports.processOptions = async (opts) => {
+module.exports.replace = async (opts) => {
 
   let errors = [];
 
   errors = _.isValidArray(errors) ? errors : options.steps.unknowns(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.cleanDirs(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.setDefaults(opts);
+  // errors = _.isValidArray(errors) ? errors : options.steps.splitArrays(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.verifyFormats(opts);
+  // errors = _.isValidArray(errors) ? errors : await options.steps.loadArrays(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.validate(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.findSourceFiles(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.setTargets(opts);
+  // errors = _.isValidArray(errors) ? errors : options.steps.setBackups(opts);
   errors = _.isValidArray(errors) ? errors : options.steps.preventOverwrite(opts);
 
   errors = _.isValidArray(errors) ? errors : processing.processFiles(opts);
+  // errors = _.isValidArray(errors) ? errors : await processing.writeLog(opts);
 
   errors = _.unique(errors);
 

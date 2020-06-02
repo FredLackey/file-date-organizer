@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 00 - Empty",
+      "name": "CLI 00 - Markdown",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -29,19 +29,38 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 02 - Copy Single",
+      "name": "CLI 02 - Copy",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
         "--source",
-        "/Users/flackey/Documents/Screenshots/",    
+        "/Users/flackey/Prep/Screeenshots/Fred/",    
         "--target",
-        "/Users/flackey/Temporary/Screenshots/",
+        "/Volumes/Data/Backups/Screenshots/",
         "--copy",
         "--use-name",
+        "--ignore",
+        "--recursive"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 03 - Overwrite",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--source",
+        "/Users/flackey/Prep/Screeenshots/Fred/",    
+        "--target",
+        "/Volumes/Data/Backups/Screenshots/",
+        "--move",
         "--overwrite",
+        "--use-name",
         "--recursive"
       ]
     }

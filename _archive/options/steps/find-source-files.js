@@ -44,9 +44,7 @@ const findSourceFiles = opts => {
         return true; 
       }
 
-      const fileName = path.parse(item);
-      
-      const info = uglyDate.analyze(path.basename(fileName.name));
+      const info = uglyDate.analyze(path.basename(item));
       if (!info || !info.date) {
         return false;
       }

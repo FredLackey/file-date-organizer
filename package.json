@@ -9,7 +9,9 @@
   },
   "scripts": {
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix src/**/*.js"
+    "lint:fix": "eslint ./src --fix src/**/*.js",
+    "markdown": "node ./src/command.js --markdown",
+    "markdown:cli": "node ./src/command.js --markdown-cli"
   },
   "repository": {
     "type": "git",
@@ -32,19 +34,19 @@
   },
   "homepage": "https://github.com/FredLackey/file-date-organizer#readme",
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
-    "@fredlackey/ugly-date": "^0.6.0",
+    "@fredlackey/ugly-date": "^0.7.0",
     "yargs": "^15.3.1"
   }
 }

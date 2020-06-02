@@ -2,7 +2,7 @@
 
 const _           = require('./utils');
 const options     = require('./options');
-const { processOptions } = require('./index');
+const { replace } = require('./index');
 
 const { argv } = require('yargs').options(options.formatters.toYargs());
 
@@ -23,22 +23,23 @@ const main = async () => {
     return;
   }
 
-  const { files, errors } = await processOptions(opts);
-  const failed  = files.filter(x => (x && x.error));
-  const success = files.filter(x => (x && !x.error));
+  const { files, errors } = await replace(opts);
+  const hasErrors = _.isValidArray(errors);
+  const hasSuccess = _.isValidArray(files) && files.filter(x => (x && x.success === true)).length > 0;
 
-  errors.forEach(err => {
-    console.error(`Error: ${err}`);
-  });
-  
-  if (failed.length === 0 && success.length === 0) {
+  if (hasErrors) {
+    errors.forEach(err => {
+      console.error(`Error: ${err}`);
+    });
+  }
+  if (hasSuccess) {
+    files.filter(file => (file && file.success)).forEach(file => {
+      console.info(file.out);
+    });
+  }
+  if (!hasErrors && !hasSuccess) {
     console.info('Nothing to do.');
-    return;
   }
-  if (failed.length > 0) {
-    console.info(`Failed: ${failed.length}`);
-  }
-  console.info(`Success: ${success.length}`);
 };
 
 main();

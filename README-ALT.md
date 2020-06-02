@@ -34,7 +34,8 @@ const results = flr.process({
 | `source`      | Source Directory                         | `string (path)` |         |
 | `target`      | Desination Directory                     | `string (path)` |         |
 | `recursive`   | Locate files recursively                 | `boolean`       | `true`  |
-| `overwrite`   | Overwrite existing target file           | `boolean`       | `false` |
+| `overwrite`   | Overwrite existing target files          | `boolean`       | `false` |
+| `ignore`      | Ignore existing target files             | `boolean`       | `false` |
 | `copy`        | Copy the files                           | `boolean`       | `false` |
 | `move`        | Move the files                           | `boolean`       | `false` |
 | `useName`     | Extract date from file name              | `boolean`       | `false` |

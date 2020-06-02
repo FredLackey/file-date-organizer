@@ -1,6 +1,6 @@
 {
   "name": "file-date-organizer",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Move files into a folder structure organized by date.",
   "main": "src/index.js",
   "preferGlobal": true,
@@ -46,7 +46,7 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
-    "@fredlackey/ugly-date": "^0.7.0",
+    "@fredlackey/ugly-date": "^0.8.0",
     "yargs": "^15.3.1"
   }
 }

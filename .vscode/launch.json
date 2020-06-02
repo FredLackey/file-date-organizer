@@ -55,13 +55,33 @@
       "program": "${workspaceFolder}/src/command.js",
       "args": [
         "--source",
-        "/Users/flackey/Prep/Screeenshots/Fred/",    
+        "/Users/flackey/pCloud Drive/Automatic Upload/",
         "--target",
-        "/Volumes/Data/Backups/Screenshots/",
+        "/Volumes/Data/Multimedia/Photos/",
         "--move",
         "--overwrite",
         "--use-name",
         "--recursive"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 04 - Ignore",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--source",
+        "/Users/flackey/pCloud Drive/Automatic Upload/",
+        "--target",
+        "/Volumes/Data/Multimedia/Photos/",
+        "--move",
+        "--use-name",
+        "--recursive",
+        "--console",
+        "--ignore"
       ]
     }
   ]

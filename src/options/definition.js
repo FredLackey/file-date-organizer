@@ -21,5 +21,7 @@ module.exports = {
   addDay      : { type: 'boolean', default: true, name: 'Target folder name includes file day' },
   addHour     : { type: 'boolean', default: false, name: 'Target folder name includes file hour' },
   addMinute   : { type: 'boolean', default: false, name: 'Target folder name includes file minute' },
-  addSecond   : { type: 'boolean', default: false, name: 'Target folder name includes file second' }
+  addSecond   : { type: 'boolean', default: false, name: 'Target folder name includes file second' },
+
+  console     : { type: 'boolean', default: false, name: 'Log activity to console' },
 };

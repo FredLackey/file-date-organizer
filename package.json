@@ -1,7 +1,7 @@
 {
   "name": "file-date-organizer",
-  "version": "0.6.0",
-  "description": "Replaces multiple lines within large text files.",
+  "version": "0.7.0",
+  "description": "Move files into a folder structure organized by date.",
   "main": "src/index.js",
   "preferGlobal": true,
   "bin": {

@@ -16,6 +16,8 @@ const toMarkdown = (forCli) => {
     let type = '';
     if (def[key].type === 'boolean') {
       type = '`boolean`';
+    } else if (def[key].type === 'number') {
+      type = '`number`';
     } else if (def[key].isPath) {
       type = '`string (path)`';
     } else if (def[key].isArray) {
@@ -27,6 +29,9 @@ const toMarkdown = (forCli) => {
     switch (typeof def[key].default) {
       case 'boolean':
         defValue = (def[key].default === true) ? '`true`' : '`false`';
+        break;
+      case 'number':
+        defValue = (def[key].default >= 0) ? `${def[key].default}` : '';
         break;
       case 'string':
         defValue = `\`${def[key].default}\``;

@@ -105,6 +105,27 @@
         "--limit",
         "1"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 06 - Created",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--source",
+        "/Users/flackey/pCloud Drive/Automatic Upload/",
+        "--target",
+        "/Volumes/MPHD01/Multimedia/Photos/",
+        "--move",
+        "--use-name",
+        "--use-created",
+        "--recursive",
+        "--console",
+        "--overwrite"
+      ]
     }
   ]
 }

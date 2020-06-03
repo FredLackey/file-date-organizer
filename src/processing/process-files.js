@@ -15,7 +15,7 @@ const processFiles = (opts) => {
 
   opts._files.forEach(file => {
     
-    if (_.isNumber(opts.limit) && _.isNumber(opts.count) && Number(opts.limit) > 0 && Number(opts.count) >= Number(opts.limit)) {
+    if (opts.limit > 0 && opts.count >= opts.limit) {
       if (!limitReached) { 
         toConsole(opts, `File limit reached ${opts.limit}.  Stopping...`);
         limitReached = true;
@@ -34,7 +34,7 @@ const processFiles = (opts) => {
       if (opts.move === true) {
         if (!_.deleteFile(file.source)) {
           file.error = 'Original file not cleaned up.';
-          toConsole(opts, `  ${file.error}`);
+          toConsole(opts, `  - ${file.error}`);
         } else {
           toConsole(opts, '  Exists... ignoring (cleaned up source file).');
         }
@@ -46,13 +46,13 @@ const processFiles = (opts) => {
 
     if (targetSize >= 0 && !opts.overwrite) {
       file.error = 'Overwrite not allowed';
-      toConsole(opts, `  ${file.error}`);
+      toConsole(opts, `  - ${file.error}`);
       return;
     }
     
     if (!_.createPath(path.dirname(file.target))) {
       file.error = 'Cannot create directory.';
-      toConsole(opts, `  ${file.error}`);
+      toConsole(opts, `  - ${file.error}`);
       return;      
     }    
 
@@ -62,7 +62,7 @@ const processFiles = (opts) => {
 
     if (!_.copyFile(file.source, file.target)) {
       file.error = exists ? 'File not overwritten.' : 'File not copied.';
-      toConsole(opts, `  ${file.error}`);
+      toConsole(opts, `  - ${file.error}`);
       return;
     } else {
       file.copied = new Date();
@@ -74,18 +74,18 @@ const processFiles = (opts) => {
       toConsole(opts, `  Copied:  ${file.copied.toLocaleString()}`);
     }
   
-    if (opts.move !== true) {
-      toConsole(opts, `  Time:    ${_.getDuration(file.start, file.copied)}`);
-      return;
+    if (opts.move === true) {
+      if (!_.deleteFile(file.source)) {
+        file.error = 'Original file not deleted.';
+        toConsole(opts, `  - ${file.error}`);
+        return;
+      } else {
+        file.deleted = new Date();
+      }
     }
 
-    if (!_.deleteFile(file.source)) {
-      file.error = 'Original file not deleted.';
-      toConsole(opts, `  ${file.error}`);
-    } else {
-      file.deleted = new Date();
-      toConsole(opts, `  Time:    ${_.getDuration(file.start, file.deleted)}`);
-    }
+    const end = opts.move ? file.deleted : file.copied;
+    toConsole(opts, `  Time:    ${_.getDuration(file.start, end)}`);
   });
   
   const errCount = opts._files.filter(x => (x && x.source && x.error)).length;

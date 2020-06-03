@@ -7,7 +7,7 @@ const setDefaults = (opts) => {
   try {
     Object.keys(def)
       .filter(key => (
-        ['string', 'boolean'].includes(typeof def[key].default) &&
+        ['string', 'boolean', 'number'].includes(typeof def[key].default) &&
         (typeof opts[key] === 'undefined')))
       .forEach(key => {
         opts[key] = def[key].default;

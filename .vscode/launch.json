@@ -67,7 +67,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 04 - Ignore",
+      "name": "CLI 04 - Defaults",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -76,12 +76,34 @@
         "--source",
         "/Users/flackey/pCloud Drive/Automatic Upload/",
         "--target",
-        "/Volumes/Data/Multimedia/Photos/",
+        "/Volumes/MPHD01/Multimedia/Photos/",
         "--move",
         "--use-name",
         "--recursive",
         "--console",
         "--ignore"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 05 - Limits",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--source",
+        "/Users/flackey/pCloud Drive/Automatic Upload/",
+        "--target",
+        "/Volumes/MPHD01/Multimedia/Photos/",
+        "--move",
+        "--use-name",
+        "--recursive",
+        "--console",
+        "--overwrite",
+        "--limit",
+        "1"
       ]
     }
   ]

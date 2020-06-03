@@ -24,8 +24,8 @@ const main = async () => {
   }
 
   const { files, errors } = await processOptions(opts);
-  const failed  = [].concat(files).filter(x => (x && x.error));
-  const success = [].concat(files).filter(x => (x && !x.error));
+  const failed  = [].concat(files).filter(x => (x && x.start && x.error));
+  const success = [].concat(files).filter(x => (x && x.start && !x.error));
 
   errors.forEach(err => {
     console.error(`Error: ${err}`);

@@ -13,5 +13,5 @@ module.exports = {
   overlapFolders,
   overlapFormat,
   sourceDir,
-  targetDir,
+  targetDir
 };

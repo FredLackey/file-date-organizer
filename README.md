@@ -34,6 +34,21 @@ file-date-organizer \
   --recursive \
   --overwrite
 ```
+A real-live example, of what I use to process photos I take is ...
+```
+file-date-organizer \
+  --source '/Users/flackey/pCloud Drive/Automatic Upload/' \
+  --target /Volumes/MPHD01/Multimedia/Photos/ \
+  --move \
+  --use-name \
+  --use-created \
+  --recursive \
+  --overwrite \
+  --console
+```
+The addition of the `--console` switch adds an output which is helpful for long-running operations...
+
+![Console Output](./docs/images/console-output.png)
 
 > **Important:**  
 > Combining `--use-name` and any other `--use*` option will cuase `--use-name` to be leveraged first.  If a valid name can be found within the name then the properties of the file will be ignored.

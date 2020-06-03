@@ -34,7 +34,7 @@ file-date-organizer \
   --recursive \
   --overwrite
 ```
-A real-live example, of what I use to process photos I take is ...
+When I process images from my camera, I use _both_ the `--use-name` switch as well as `--use-created`.  This ensures files without a date in the name still get moved properly.
 ```
 file-date-organizer \
   --source '/Users/flackey/pCloud Drive/Automatic Upload/' \

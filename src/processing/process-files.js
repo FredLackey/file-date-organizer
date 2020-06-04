@@ -4,7 +4,7 @@ const path  = require('path');
 const toConsole = (opts, message) => {
   if (!opts.console) { return; }
   console.info(message);
-}
+};
 
 const processFiles = (opts) => {
 
@@ -60,31 +60,27 @@ const processFiles = (opts) => {
     file.start = new Date();
     toConsole(opts, `  Start:   ${file.start.toLocaleString()} (size: ${sourceSize})`);
 
-    if (!_.copyFile(file.source, file.target)) {
-      file.error = exists ? 'File not overwritten.' : 'File not copied.';
-      toConsole(opts, `  - ${file.error}`);
-      return;
-    } else {
-      file.copied = new Date();
-    }
-    
     if (opts.move === true) {
-      toConsole(opts, `  Moved:   ${file.copied.toLocaleString()}`);
-    } else {
-      toConsole(opts, `  Copied:  ${file.copied.toLocaleString()}`);
-    }
-  
-    if (opts.move === true) {
-      if (!_.deleteFile(file.source)) {
-        file.error = 'Original file not deleted.';
+      if (!_.moveFile(file.source, file.target)) {
+        file.error = (targetSize >= 0) ? 'File not overwritten.' : 'File not moved.';
         toConsole(opts, `  - ${file.error}`);
         return;
-      } else {
-        file.deleted = new Date();
       }
+      file.moved = new Date();
+      toConsole(opts, `  Moved:   ${file.moved.toLocaleString()}`);
+    }
+    
+    if (opts.copy === true) {
+      if (!_.copyFile(file.source, file.target)) {
+        file.error = (targetSize >= 0) ? 'File not overwritten.' : 'File not copied.';
+        toConsole(opts, `  - ${file.error}`);
+        return;
+      }
+      file.copied = new Date();
+      toConsole(opts, `  Copied:  ${file.copied.toLocaleString()}`);
     }
 
-    const end = opts.move ? file.deleted : file.copied;
+    const end = opts.move ? file.moved : file.copied;
     toConsole(opts, `  Time:    ${_.getDuration(file.start, end)}`);
   });
   

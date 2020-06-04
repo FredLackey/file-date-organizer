@@ -67,6 +67,7 @@ The addition of the `--console` switch adds an output which is helpful for long-
 | `use-name`     | Extract date from file name              | `boolean`       | `false` |
 | `use-created`  | Use created date for target folder name  | `boolean`       | `false` |
 | `use-modified` | Use modified date for target folder name | `boolean`       | `false` |
+| `add-type`     | Target folder name includes file type    | `boolean`       | `false` |
 | `add-year`     | Target folder name includes file year    | `boolean`       | `true`  |
 | `add-month`    | Target folder name includes file month   | `boolean`       | `true`  |
 | `add-day`      | Target folder name includes file day     | `boolean`       | `true`  |

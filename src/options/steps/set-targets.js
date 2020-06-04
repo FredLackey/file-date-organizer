@@ -31,13 +31,15 @@ const dateInfoFromName = (opts, source) => {
 };
 const getTargetPath = (opts, source) => {
   const date = dateInfoFromName(opts, source) || dateInfoFromFile(opts, source);
+  
+  const ext = opts.addType ?  (_.removePrefix(path.parse(source).ext, '.').trim().toUpperCase() || '_') : '';
   const YYYY = opts.addYear ? `${date.getFullYear()}` : '';
   const MM   = opts.addYear ? `${date.getMonth() + 1}`.padStart(2, '0') : '';
   const dd   = opts.addDay ? `${date.getDate()}`.padStart(2, '0') : '';
   const hh   = opts.addHour ? `${date.getHours()}`.padStart(2, '0') : '';
   const mm   = opts.addMinute ? `${date.getMinutes()}`.padStart(2, '0') : '';
   const ss   = opts.addSecond ? `${date.getSeconds()}`.padStart(2, '0') : '';
-  const parts = [YYYY, MM, dd, hh, mm, ss].filter(x => (x && x.trim().length > 0));
+  const parts = [ext, YYYY, MM, dd, hh, mm, ss].filter(x => (x && x.trim().length > 0));
   const target = path.join(opts.target, ...parts);
   return path.join(target, path.basename(source));
 };

@@ -25,6 +25,7 @@ const makePath        = require('./make-path');
 const moveFile        = require('./move-file');
 const print           = require('./print');
 const readLines       = require('./read-lines');
+const removePrefix    = require('./remove-prefix');
 const toKebabCase     = require('./to-kebab-case');
 const toTable         = require('./to-table');
 const trimArray       = require('./trim-array').trim;
@@ -58,6 +59,7 @@ module.exports = {
   moveFile,
   print,
   readLines,
+  removePrefix,
   toKebabCase,
   toTable,
   trimArray,

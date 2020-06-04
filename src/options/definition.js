@@ -16,6 +16,7 @@ module.exports = {
   useCreated  : { type: 'boolean', default: false, name: 'Use created date for target folder name' },
   useModified : { type: 'boolean', default: false, name: 'Use modified date for target folder name' },
 
+  addType     : { type: 'boolean', default: false, name: 'Target folder name includes file type' },
   addYear     : { type: 'boolean', default: true, name: 'Target folder name includes file year' },
   addMonth    : { type: 'boolean', default: true, name: 'Target folder name includes file month' },
   addDay      : { type: 'boolean', default: true, name: 'Target folder name includes file day' },

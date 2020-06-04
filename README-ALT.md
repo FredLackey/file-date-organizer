@@ -41,6 +41,7 @@ const results = flr.process({
 | `useName`     | Extract date from file name              | `boolean`       | `false` |
 | `useCreated`  | Use created date for target folder name  | `boolean`       | `false` |
 | `useModified` | Use modified date for target folder name | `boolean`       | `false` |
+| `addType`     | Target folder name includes file type    | `boolean`       | `false` |
 | `addYear`     | Target folder name includes file year    | `boolean`       | `true`  |
 | `addMonth`    | Target folder name includes file month   | `boolean`       | `true`  |
 | `addDay`      | Target folder name includes file day     | `boolean`       | `true`  |

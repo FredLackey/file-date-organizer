@@ -20,6 +20,6 @@ const getDuration = (start, end) => {
     `${mins}`.padStart(2, '0'),
     `${seconds}`.padStart(2, '0')
   ].join(':');
-}
+};
 
 module.exports = getDuration;

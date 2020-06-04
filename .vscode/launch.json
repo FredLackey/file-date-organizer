@@ -128,6 +128,26 @@
         "--limit",
         "1"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 07 - Type",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--source",
+        "/Volumes/ARK01/Multimedia/Pictures",
+        "--target",
+        "/Volumes/ARK01/Multimedia/_Pictures",
+        "--move",
+        "--use-name",
+        "--recursive",
+        "--add-type",
+        "--console"
+      ]
     }
   ]
 }

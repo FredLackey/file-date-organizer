@@ -5,7 +5,7 @@ const getFileSize = filePath => {
     const info = fs.lstatSync(filePath);
     return info.isFile() ? info.size : -1;
   } catch (e) {
-    return undefined;
+    return -1;
   }
 };
 

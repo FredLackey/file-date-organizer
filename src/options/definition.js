@@ -24,4 +24,7 @@ module.exports = {
   addSecond   : { type: 'boolean', default: false, name: 'Target folder name includes file second' },
 
   console     : { type: 'boolean', default: false, name: 'Log activity to console' },
+
+  limit       : { type: 'number', default: -1, name: 'Number of files to process' },
+  allowFuture : { type: 'boolean', default: false, name: 'Allow file names with date in future' },
 };

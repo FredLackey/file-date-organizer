@@ -47,6 +47,9 @@ const results = flr.process({
 | `addHour`     | Target folder name includes file hour    | `boolean`       | `false` |
 | `addMinute`   | Target folder name includes file minute  | `boolean`       | `false` |
 | `addSecond`   | Target folder name includes file second  | `boolean`       | `false` |
+| `console`     | Log activity to console                  | `boolean`       | `false` |
+| `limit`       | Number of files to process               | `number`        |         |
+| `allowFuture` | Allow file names with date in future     | `boolean`       | `false` |
 
 ### Contact  
 Please feel free to contact me directly with any questions, comments, or enhancement requests:

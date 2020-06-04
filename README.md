@@ -34,6 +34,21 @@ file-date-organizer \
   --recursive \
   --overwrite
 ```
+When I process images from my camera, I use _both_ the `--use-name` switch as well as `--use-created`.  This ensures files without a date in the name still get moved properly.
+```
+file-date-organizer \
+  --source '/Users/flackey/pCloud Drive/Automatic Upload/' \
+  --target /Volumes/MPHD01/Multimedia/Photos/ \
+  --move \
+  --use-name \
+  --use-created \
+  --recursive \
+  --overwrite \
+  --console
+```
+The addition of the `--console` switch adds an output which is helpful for long-running operations...
+
+![Console Output](./docs/images/console-output.png)
 
 > **Important:**  
 > Combining `--use-name` and any other `--use*` option will cuase `--use-name` to be leveraged first.  If a valid name can be found within the name then the properties of the file will be ignored.
@@ -58,6 +73,9 @@ file-date-organizer \
 | `add-hour`     | Target folder name includes file hour    | `boolean`       | `false` |
 | `add-minute`   | Target folder name includes file minute  | `boolean`       | `false` |
 | `add-second`   | Target folder name includes file second  | `boolean`       | `false` |
+| `console`      | Log activity to console                  | `boolean`       | `false` |
+| `limit`        | Number of files to process               | `number`        |         |
+| `allow-future` | Allow file names with date in future     | `boolean`       | `false` |
 
 ### Contact  
 Please feel free to contact me directly with any questions, comments, or enhancement requests:

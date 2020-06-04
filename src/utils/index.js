@@ -4,6 +4,8 @@ const createPath      = require('./create-path');
 const deleteFile      = require('./delete-file');
 const getBlockDate    = require('./get-blockdate');
 const getCommonPath   = require('./get-common-path');
+const getDuration     = require('./get-duration');
+const getFileSize     = require('./get-file-size');
 const getPads         = require('./get-pads');
 const getSubstring    = require('./get-substring');
 const isAlpha         = require('./is-alpha');
@@ -14,6 +16,7 @@ const isDirectory     = require('./is-directory');
 const isFile          = require('./is-file');
 const isFolder        = require('./is-folder');
 const isMatch         = require('./is-match');
+const isNumber        = require('./is-number');
 const isSet           = require('./is-set');
 const isValidArray    = require('./is-valid-array');
 const isValidPath     = require('./is-valid-path');
@@ -34,6 +37,8 @@ module.exports = {
   deleteFile,
   getBlockDate,
   getCommonPath,
+  getDuration,
+  getFileSize,
   getPads,
   getSubstring,
   isAlpha,
@@ -44,6 +49,7 @@ module.exports = {
   isFile,
   isFolder,
   isMatch,
+  isNumber,
   isSet,
   ...isValidArray,
   ...isValidPath,

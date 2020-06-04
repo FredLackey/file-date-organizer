@@ -1,6 +1,6 @@
 {
   "name": "file-date-organizer",
-  "version": "0.7.3",
+  "version": "0.8.3",
   "description": "Move files into a folder structure organized by date.",
   "main": "src/index.js",
   "preferGlobal": true,

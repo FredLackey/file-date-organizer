@@ -17,9 +17,12 @@ const dateInfoFromFile = (opts, source) => {
 };
 const dateInfoFromName = (opts, source) => {
   if (!opts.useName) { return null; }
-  const info = uglyDate.analyze(path.basename(source));
+  const info = uglyDate.analyze(path.parse(source).name);
   if (!info || !info.date || !info.hasDate) { 
     return null; 
+  }
+  if (!opts.allowFuture && info.date > (new Date())) {
+    return null;
   }
   if (!info.hasTime && opts.addHour) { 
     return null; 

@@ -10,6 +10,7 @@ const verifyFormats = (opts) => {
   const pathArrays =  keys.filter(key => (def[key].type === 'string') && def[key].isArray && def[key].isPath);
   const strings =  keys.filter(key => (def[key].type === 'string') && !def[key].isArray && !def[key].isPath);
   const stringArrays =  keys.filter(key => (def[key].type === 'string') && def[key].isArray && !def[key].isPath);
+  const numbers =  keys.filter(key => (def[key].type === 'number') && !def[key].isArray && !def[key].isPath);
 
   const badBools = bools.filter(key => (!_.isBooleanIfSet(opts[key])));
   const badPaths = paths.filter(key => (!_.isValidPathIfSet(opts[key])));
@@ -22,13 +23,15 @@ const verifyFormats = (opts) => {
     !_.isValidArray(opts[key], def[key].allowEmpty) ||
     opts[key].filter(value => (!_.isValidString(value, def[key].allowEmpty))).length > 0
   ));
+  const badNumbers = numbers.filter(key => (opts[key] !== '' && !_.isNumber(opts[key])));
 
   const errors = [].concat(
     badBools,
     badPaths,
     badPathArrays,
     badStrings,
-    badStringArrays
+    badStringArrays,
+    badNumbers
   ).filter(_.isValidString).map(key => {
     return `Invalid format for ${def[key].name.toLowerCase()}.`;
   });

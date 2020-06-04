@@ -57,12 +57,8 @@ const findSourceFiles = opts => {
         console.info(`NO DATE: ${path.basename(item)}`);
         return false;
       }
-      if (!info.hasTime) {
+      if (opts.addHour && !info.hasTime) {
         console.info(`NO TIME: ${path.basename(item)}`);
-        return false;
-      }
-
-      if (!info.hasTime || ((opts.addHour || opts.addMinute || opts.addSecond))) {
         return false;
       }
 
